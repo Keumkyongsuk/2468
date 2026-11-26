@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>홍길동 ♥ 김영희 결혼합니다</title>
+  <meta name="description" content="2027년 3월 3일 수요일 오후 2시, 파라다이스웨딩컨벤션">
+  <meta name="theme-color" content="#FFEBCC">
+
+  <!-- 카카오톡 공유 미리보기: 배포 후 아래 image/url 을 실제 배포 주소(절대 경로)로 바꿔주세요 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="홍길동 ♥ 김영희 결혼합니다">
+  <meta property="og:description" content="2027년 3월 3일 수요일 오후 2시, 파라다이스웨딩컨벤션">
+  <meta property="og:image" content="image/web/05.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Gowun+Batang:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- 음악 재생 버튼 (우측 상단 고정) -->
+  <div class="fixed-bar">
+    <button id="musicBtn" class="music-btn" type="button" aria-label="배경음악 재생" aria-pressed="false">
+      <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" fill="currentColor"/><circle cx="17.5" cy="16" r="2.5" fill="currentColor"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.5" fill="currentColor"/></svg>
+    </button>
+  </div>
+
+  <main class="app">
+
+    <!-- 1. 인트로 -->
+    <section id="intro" class="intro">
+      <img class="intro__photo" src="image/web/05.webp" alt="손을 맞잡은 신랑 신부" fetchpriority="high">
+      <div class="intro__veil"></div>
+      <div class="intro__text">
+        <p class="eyebrow">WEDDING INVITATION</p>
+        <h1 class="intro__names">Gildong <span>&amp;</span> Younghee</h1>
+        <p class="intro__date">2027.03.03 WED PM 2:00</p>
+        <p class="intro__venue">파라다이스웨딩컨벤션</p>
+      </div>
+      <a class="scroll-hint" href="#greeting" aria-label="아래로 스크롤">
+        <span>SCROLL</span>
+        <i></i>
+      </a>
+    </section>
+
+    <!-- 2. 인사말 -->
+    <section id="greeting" class="section section--white">
+      <p class="eyebrow reveal">INVITATION</p>
+      <h2 class="section__title reveal">소중한 분들을 초대합니다</h2>
+      <p class="greeting__text reveal" id="greetingText"></p>
+
+      <div class="duo reveal">
+        <figure class="duo__item">
+          <img src="image/web/01.webp" alt="신랑 홍길동" loading="lazy">
+          <figcaption><small>신랑</small><strong id="groomName">홍길동</strong></figcaption>
+        </figure>
+        <figure class="duo__item">
+          <img src="image/web/02.webp" alt="신부 김영희" loading="lazy">
+          <figcaption><small>신부</small><strong id="brideName">김영희</strong></figcaption>
+        </figure>
+      </div>
+
+      <div class="btn-row reveal">
+        <a class="btn btn--outline" id="callGroom" href="#">신랑에게 전화</a>
+        <a class="btn btn--outline" id="callBride" href="#">신부에게 전화</a>
+      </div>
+    </section>
+
+    <!-- 3. 갤러리 -->
+    <section id="gallery" class="section section--tint">
+      <p class="eyebrow reveal">GALLERY</p>
+      <h2 class="section__title reveal">우리의 순간</h2>
+      <div class="gallery reveal" id="galleryGrid"></div>
+      <p class="hint reveal">사진을 누르면 크게 볼 수 있어요</p>
+    </section>
+
+    <!-- 4. 예식 안내 -->
+    <section id="info" class="section section--white">
+      <p class="eyebrow reveal">WEDDING DAY</p>
+      <h2 class="section__title reveal">예식 안내</h2>
+      <p class="info__when reveal">2027년 3월 3일 수요일 오후 2시</p>
+      <p class="info__where reveal">파라다이스웨딩컨벤션</p>
+
+      <div class="calendar reveal" id="calendar" aria-label="2027년 3월 달력"></div>
+
+      <div class="countdown reveal" aria-live="off">
+        <p class="countdown__lead" id="dday"></p>
+        <div class="countdown__grid">
+          <div><b id="cdDays">0</b><span>DAYS</span></div>
+          <div><b id="cdHours">0</b><span>HOURS</span></div>
+          <div><b id="cdMins">0</b><span>MINS</span></div>
+          <div><b id="cdSecs">0</b><span>SECS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 오시는 길 -->
+    <section id="location" class="section section--tint">
+      <p class="eyebrow reveal">LOCATION</p>
+      <h2 class="section__title reveal">오시는 길</h2>
+      <p class="location__name reveal">파라다이스웨딩컨벤션</p>
+      <p class="location__addr reveal" id="address"></p>
+
+      <div class="map reveal" id="map">
+        <div class="map__fallback">
+          <p>지도 키를 설정하면 이곳에 지도가 표시됩니다.</p>
+          <p>아래 버튼으로 길찾기를 이용해 주세요.</p>
+        </div>
+      </div>
+
+      <div class="btn-row reveal">
+        <a class="btn btn--primary" id="kakaoMapLink" target="_blank" rel="noopener">카카오맵</a>
+        <a class="btn btn--primary" id="naverMapLink" target="_blank" rel="noopener">네이버지도</a>
+      </div>
+
+      <ul class="transport reveal" id="transportList"></ul>
+    </section>
+
+    <!-- 6. 마음 전하실 곳 -->
+    <section id="account" class="section section--white">
+      <p class="eyebrow reveal">WITH LOVE</p>
+      <h2 class="section__title reveal">마음 전하실 곳</h2>
+      <p class="section__lead reveal">참석이 어려우신 분들을 위해<br>계좌번호를 안내드립니다.<br>따뜻한 마음에 깊이 감사드립니다.</p>
+
+      <div class="acc-group reveal" id="accountGroom"></div>
+      <div class="acc-group reveal" id="accountBride"></div>
+    </section>
+
+    <!-- 7. 방명록 -->
+    <section id="guestbook" class="section section--tint">
+      <p class="eyebrow reveal">GUESTBOOK</p>
+      <h2 class="section__title reveal">방명록</h2>
+      <p class="section__lead reveal">두 사람에게 축하의 한마디를 남겨주세요.</p>
+
+      <form class="gb-form card reveal" id="gbForm" autocomplete="off">
+        <label class="field">
+          <span>이름</span>
+          <input type="text" id="gbName" maxlength="20" placeholder="이름 (최대 20자)" required>
+        </label>
+        <label class="field">
+          <span>메시지 <em id="gbCount">0/200</em></span>
+          <textarea id="gbMessage" maxlength="200" rows="4" placeholder="축하 메시지를 남겨주세요" required></textarea>
+        </label>
+        <button class="btn btn--primary btn--block" type="submit" id="gbSubmit">남기기</button>
+        <p class="gb-mode" id="gbMode" hidden></p>
+      </form>
+
+      <ul class="gb-list" id="gbList" aria-live="polite"></ul>
+    </section>
+
+    <!-- 8. 마무리 -->
+    <section id="closing" class="section section--white closing">
+      <img class="closing__photo reveal" src="image/web/07.webp" alt="반지를 낀 두 사람의 손" loading="lazy">
+      <p class="closing__text reveal">
+        함께해 주셔서 감사합니다.<br>
+        행복하게 잘 살겠습니다.
+      </p>
+      <p class="closing__names reveal">Gildong &amp; Younghee</p>
+      <div class="btn-row reveal">
+        <button class="btn btn--primary" id="shareKakao" type="button">카카오톡으로 공유</button>
+        <button class="btn btn--outline" id="copyLink" type="button">링크 복사</button>
+      </div>
+      <footer class="footer">© 2027 Gildong &amp; Younghee</footer>
+    </section>
+
+  </main>
+
+  <!-- 갤러리 확대 보기 -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+    <button class="lightbox__close" id="lbClose" type="button" aria-label="닫기">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="이전 사진">&#8249;</button>
+    <img class="lightbox__img" id="lbImg" alt="">
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="다음 사진">&#8250;</button>
+    <p class="lightbox__count" id="lbCount"></p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/guestbook.js"></script>
+</body>
+</html>
